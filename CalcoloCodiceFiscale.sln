@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcoloCodiceFiscale", "CalcoloCodiceFiscale\CalcoloCodiceFiscale.csproj", "{FE36F76B-4737-40A9-9E7E-F854B3568C1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE36F76B-4737-40A9-9E7E-F854B3568C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE36F76B-4737-40A9-9E7E-F854B3568C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE36F76B-4737-40A9-9E7E-F854B3568C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE36F76B-4737-40A9-9E7E-F854B3568C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B67B492-B9AA-416F-82B9-B45ECF9C0486}
+	EndGlobalSection
+EndGlobal
