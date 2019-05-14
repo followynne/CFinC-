@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +27,9 @@ namespace CalcoloCodiceFiscale.CF_Classes
 
             string y = String.Join("", surname, name, year, month, day, comune);
             string controlChar = ControlChar(y);
+            if (controlChar.Length > 1) { Console.WriteLine("Errore. Riprovare. Hai inserito dati non validi."); return; }
 
             y = String.Join("", y, controlChar);
-
             Console.WriteLine(y);
         }
 
@@ -55,20 +56,22 @@ namespace CalcoloCodiceFiscale.CF_Classes
                         j++;
                     }
                 }
-                string sC = new string(c);
-                if (sC.Length < 3)
+                //string sC = new string(c);
+                // sC.Length
+                if (j < 3)
                 {
-                    for (int k = 0, l = sC.Length - 1; k < strSplit.Length || l > 3; k++, l++)
+                    for (int k = 0, l = j; k < strSplit.Length && l > 3; k++)
                     {
                         if (strSplit[k] == 'A' || strSplit[k] == 'E' || strSplit[k] == 'I' || strSplit[k] == 'O' || strSplit[k] == 'U')
                         {
                             c[l] = strSplit[k];
+                            l++;
                         }
                     }
-                    return sC = string.Join("", c);
+                    return string.Join("", c);
                 } else
                 {
-                    return sC;
+                    return string.Join("", c);
                 }
             }
 
@@ -91,12 +94,11 @@ namespace CalcoloCodiceFiscale.CF_Classes
                 char[] temp = new char[strSplit.Length];
                 char[] c = new char[3];
                 int j = 0;
-                string sC;
                 for (int i = 0; i < strSplit.Length; i++)
                 {
                     if (strSplit[i] != 'A' && strSplit[i] != 'E' && strSplit[i] != 'I' && strSplit[i] != 'O' && strSplit[i] != 'U')
                     {
-                        temp[i] = strSplit[i];
+                        temp[j] = strSplit[i];
                         j++;
                     }
                 }
@@ -106,14 +108,15 @@ namespace CalcoloCodiceFiscale.CF_Classes
                     {
                         c[i] = temp[i];
                     }
-                    for (int k = 0, l = j; k < strSplit.Length || l > 3; k++, l++)
+                    for (int k = 0, l = j; k < strSplit.Length && l < 3; k++)
                     {
                         if (strSplit[k] == 'A' || strSplit[k] == 'E' || strSplit[k] == 'I' || strSplit[k] == 'O' || strSplit[k] == 'U')
                         {
                             c[l] = strSplit[k];
+                            l++;
                         }
                     }
-                    return sC = string.Join("", c);
+                    return string.Join("", c);
                 }
                 else if (j == 3)
                 {
@@ -121,15 +124,14 @@ namespace CalcoloCodiceFiscale.CF_Classes
                     {
                         c[i] = temp[i];
                     }
-                    return sC = string.Join("", c);
-
+                    return string.Join("", c);
                 }
-                else if (j > 3)
+                else
                 {
                     c[0] = temp[0];
                     c[1] = temp[1];
                     c[2] = temp[3];
-                    return sC = string.Join("", c);
+                    return string.Join("", c);
                 }
 
             }
@@ -157,8 +159,7 @@ namespace CalcoloCodiceFiscale.CF_Classes
         {
             if (s.ToUpper() == "F")
             {
-                int d = i + 40;
-                return i.ToString();
+                return (i+40).ToString();
             }
             else if (s.ToUpper() == "M"){
                 return i.ToString();
@@ -170,9 +171,12 @@ namespace CalcoloCodiceFiscale.CF_Classes
 
         private static string Comune(string c)
         {
+            
+            //string[] sComuni = Properties.Resources.codCatastale.Split('\r');
+            //Console.WriteLine(sComuni);
             Dictionary<string, string> d = new Dictionary<string, string>()
             {
-                { "Torino", "L219" }, {"Milano", "F205"}, {"Napoli", "F839" }, {"Potenza", "G942"}
+                { "Torino", "L219" }, {"Milano", "F205"}, {"Napoli", "F839" }, {"Potenza", "G942"}, {"Trieste", "L424"}
             };
             try
             {
@@ -184,15 +188,17 @@ namespace CalcoloCodiceFiscale.CF_Classes
             }
         }
 
+        //da gestire l'errore!
         private static string ControlChar(string s)
         {
             char[] x = s.ToUpper().ToCharArray();
-            char[] pari = new char[8];
+            if (x.Length > 15) { return  "Errore, non è stato possibile calcolare il conto."; }
+            char[] pari = new char[7];
             char[] dispari = new char[8];
             int ip = 0, id = 0, cni=0;
-            for (int i=0; i<x.Length; i++)
+            for (int i=0, ct = 1; i<x.Length; i++)
             {
-                if (i % 2 == 0)
+                if (ct % 2 == 0)
                 {
                     pari[ip] = x[i];
                     ip++;
@@ -201,36 +207,34 @@ namespace CalcoloCodiceFiscale.CF_Classes
                     dispari[id] = x[i];
                     id++;
                 }
+                ct++;
             }
-            Dictionary<string, int> dDispari = new Dictionary<string, int>(){
-                {"0", 1}, {"1", 0}, {"2", 5}, {"3", 7}, {"4", 9}, {"5", 13}, {"6", 15}, {"7", 17},
-                {"8", 19}, {"9", 21},{"A", 1},{"B", 0},{"C", 5},{"D", 7},{"E", 9},{"F", 13},{"G", 15},
-                {"H", 17},{"I", 19},{"J", 21},{"K", 2},{"L", 4},{"M", 18},{"N", 20},{"O", 11},{"P", 3},{"Q", 6},
-                {"R", 8},{"S", 12},{"T", 14},{"U", 16},{"V", 10},{"W", 22},{"X", 25},{"Y", 24},{"Z", 23}
-            };
             Dictionary<string, int> dPari = new Dictionary<string, int>(){
                 {"0", 0}, {"1", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7},
                 {"8", 8}, {"9", 9},{"A", 0},{"B", 1},{"C", 2},{"D", 3},{"E", 4},{"F", 5},{"G", 6},
                 {"H", 7},{"I", 8},{"J", 9},{"K", 10},{"L", 11},{"M", 12},{"N", 13},{"O", 14},{"P", 15},{"Q", 16},
                 {"R", 17},{"S", 18},{"T", 19},{"U", 20},{"V", 21},{"W", 22},{"X", 23},{"Y", 24},{"Z", 25}
             };
+            Dictionary<string, int> dDispari = new Dictionary<string, int>(){
+                {"0", 1}, {"1", 0}, {"2", 5}, {"3", 7}, {"4", 9}, {"5", 13}, {"6", 15}, {"7", 17},
+                {"8", 19}, {"9", 21},{"A", 1},{"B", 0},{"C", 5},{"D", 7},{"E", 9},{"F", 13},{"G", 15},
+                {"H", 17},{"I", 19},{"J", 21},{"K", 2},{"L", 4},{"M", 18},{"N", 20},{"O", 11},{"P", 3},{"Q", 6},
+                {"R", 8},{"S", 12},{"T", 14},{"U", 16},{"V", 10},{"W", 22},{"X", 25},{"Y", 24},{"Z", 23}
+            };
             Dictionary<int, string> dCni = new Dictionary<int, string>(){
                 {0, "A"}, {1, "B"}, {2, "C"}, {3, "D"}, {4, "E"}, {5, "F"}, {6, "G"}, {7, "H"},
                 {8, "I"}, {9, "J"},{10, "K"},{11, "L"},{12, "M"},{13, "N"},{14, "O"},{15, "P"},{16, "Q"},
                 {17, "R"},{18, "S"},{19, "T"},{20, "U"},{21, "V"},{22, "W"},{23, "X"},{24, "Y"},{25, "Z" }
             };
-            for (int i = 0; i<ip;i++)
+            for (int k = 0; k<7;k++)
             {
-                cni += dPari.First(z => z.Key.Equals(pari[i].ToString())).Value;
-
+                cni += dPari.First(z => z.Key == pari[k].ToString()).Value;
             }
-            for (int i = 0; i < id; i++)
+            for (int i = 0; i<8; i++)
             {
-                cni += dDispari.First(z => z.Key.Equals(dispari[i].ToString())).Value;
-
+                cni += dDispari.First(z => z.Key == dispari[i].ToString()).Value;
             }
-            cni %= 26;
-            return dCni.First(z => z.Key == cni).Value;
+            return dCni.First(z => z.Key == (cni%=26)).Value;
         }
 
     }
