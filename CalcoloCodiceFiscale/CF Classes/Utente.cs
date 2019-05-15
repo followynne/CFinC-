@@ -17,6 +17,7 @@ namespace CalcoloCodiceFiscale.CF_Classes
             _comune = comune;
             _sesso = sesso;
         }
+
         #region getset
         private string _nome;
 
@@ -59,12 +60,10 @@ namespace CalcoloCodiceFiscale.CF_Classes
         }
         #endregion
         
-
         public void Print()
         {
-            Console.Write(_nome + " " + _cognome + " " + _dateTime + " " + _comune + " " + _sesso + "\n");
+            Console.WriteLine("I tuoi dati sono: " + _nome + " " + _cognome + " " + _dateTime.Day
+                + "/" + _dateTime.Month + "/" + _dateTime.Year + " " + _comune + " " + _sesso);
         }
-       
-
     }
 }

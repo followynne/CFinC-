@@ -5,13 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// per settare i comuni in un form
-//String[] comuni;
-//String[] codCatastale;
-//comuni = File.ReadAllLines("C:/Users/a.dumitru/Downloads/listacomuni.txt");
-//           codCatastale = File.ReadAllLines("C:/Users/a.dumitru/Downloads/codCatastale.txt");
-
-
 namespace CalcoloCodiceFiscale.CF_Classes
 {
     static class CalcoloCF
@@ -20,28 +13,29 @@ namespace CalcoloCodiceFiscale.CF_Classes
         {
             string surname = Cognome(u.Cognome);
             string name = Nome(u.Nome);
-            string year = u.DataNascita.Year.ToString().Substring(2, 2);
+            string year = u.DataNascita.Year.ToString("0000").Substring(2, 2);
             string month = Month(u.DataNascita.Month);
             string day = Day(u.DataNascita.Day, u.Sesso);
-            string comune = Comune(u.Comune);
+            string placeOfBirth = PlaceOfBirth(u.Comune);
 
-            string y = String.Join("", surname, name, year, month, day, comune);
+            string y = String.Join("", surname, name, year, month, day, placeOfBirth);
             string controlChar = ControlChar(y);
-            if (controlChar.Length > 1) { Console.WriteLine("Errore. Riprovare. Hai inserito dati non validi."); return; }
 
-            y = String.Join("", y, controlChar);
-            Console.WriteLine(y);
+            //in caso di dati non coerenti, il programma esce restituendo un messaggio di errore.
+            if (controlChar.Length != 1) { Console.WriteLine("Errore. Riprovare. Hai inserito dati non validi."); return;}
+
+            Console.WriteLine(y = String.Join("", y, controlChar));
         }
 
         private static string Cognome(string s) {
             string cognome = s.ToUpper();
             if (cognome.Length < 2)
             {
-                return "err";
+                return "Errore. Non ammessi cognomi a una lettera.";
             }
             else if (cognome.Length < 3)
             {
-                return (cognome += "x").ToUpper();
+                return (cognome += "X");
             }
             else
             {
@@ -56,16 +50,14 @@ namespace CalcoloCodiceFiscale.CF_Classes
                         j++;
                     }
                 }
-                //string sC = new string(c);
-                // sC.Length
                 if (j < 3)
                 {
-                    for (int k = 0, l = j; k < strSplit.Length && l > 3; k++)
+                    for (int k = 0; k < strSplit.Length && j < 3; k++)
                     {
                         if (strSplit[k] == 'A' || strSplit[k] == 'E' || strSplit[k] == 'I' || strSplit[k] == 'O' || strSplit[k] == 'U')
                         {
-                            c[l] = strSplit[k];
-                            l++;
+                            c[j] = strSplit[k];
+                            j++;
                         }
                     }
                     return string.Join("", c);
@@ -82,11 +74,11 @@ namespace CalcoloCodiceFiscale.CF_Classes
             string nome = s.ToUpper();
             if (nome.Length < 2)
             {
-                return "err";
+                return "Errore. Non ammessi cognomi a una lettera.";
             }
             else if (nome.Length < 3)
             {
-                return (nome += "x").ToUpper();
+                return (nome += "X");
             }
             else
             {
@@ -129,7 +121,7 @@ namespace CalcoloCodiceFiscale.CF_Classes
                 else
                 {
                     c[0] = temp[0];
-                    c[1] = temp[1];
+                    c[1] = temp[2];
                     c[2] = temp[3];
                     return string.Join("", c);
                 }
@@ -157,27 +149,26 @@ namespace CalcoloCodiceFiscale.CF_Classes
 
         private static string Day(int i, string s)
         {
-            if (s.ToUpper() == "F")
+            if (s == "F")
             {
-                return (i+40).ToString();
+                return (i+40).ToString("00");
             }
-            else if (s.ToUpper() == "M"){
-                return i.ToString();
-            } else
-            {
-                return "err";
+            else {
+                return i.ToString("00");
             }
         }
 
-        private static string Comune(string c)
+        private static string PlaceOfBirth(string c)
         {
             
-            //string[] sComuni = Properties.Resources.codCatastale.Split('\r');
-            //Console.WriteLine(sComuni);
-            Dictionary<string, string> d = new Dictionary<string, string>()
+            string[] sCatasto = Properties.Resources.codCatastale.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            string[] sComuni = Properties.Resources.listacomuni.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            for (int i=0;i< sCatasto.Length && i<sComuni.Length; i++)
             {
-                { "Torino", "L219" }, {"Milano", "F205"}, {"Napoli", "F839" }, {"Potenza", "G942"}, {"Trieste", "L424"}
-            };
+                d.Add(sComuni[i], sCatasto[i]);
+            }
             try
             {
                 return d.First(x => x.Key == c).Value;
@@ -188,11 +179,10 @@ namespace CalcoloCodiceFiscale.CF_Classes
             }
         }
 
-        //da gestire l'errore!
         private static string ControlChar(string s)
         {
             char[] x = s.ToUpper().ToCharArray();
-            if (x.Length > 15) { return  "Errore, non è stato possibile calcolare il conto."; }
+            if (x.Length > 15) { return  "Errore."; }
             char[] pari = new char[7];
             char[] dispari = new char[8];
             int ip = 0, id = 0, cni=0;
@@ -236,6 +226,5 @@ namespace CalcoloCodiceFiscale.CF_Classes
             }
             return dCni.First(z => z.Key == (cni%=26)).Value;
         }
-
     }
 }

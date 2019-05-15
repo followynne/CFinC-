@@ -12,7 +12,7 @@ namespace CalcoloCodiceFiscale
     {
         static void Main(string[] args)
         {
-
+            #region consegna
             /* Scopo applicativo
              * all'utente è chiesto di inserire i seguenti dati:
              * Nome
@@ -22,29 +22,44 @@ namespace CalcoloCodiceFiscale
              * 
              * In output sarà visualizzato il codice fiscale, calcolato tramite classe statica.
              */
-
+            #endregion
+            string nome, cognome, data, comune, sex;
+            #region inputUser
             Console.WriteLine("Ciao, inserisci per favore il tuo nome.");
-            string no = Console.ReadLine();
+            do
+            {
+                nome = Console.ReadLine();
+            } while (nome == "" || !(nome.All(Char.IsLetter)));
             Console.WriteLine("Ciao, inserisci per favore il tuo cognome.");
-            string cg = Console.ReadLine();
+            do
+            {
+                cognome = Console.ReadLine();
+            } while (cognome == "" || !(cognome.All(Char.IsLetter)));
             Console.WriteLine("Ciao, inserisci per favore la tua data di nascita in questo formato: gg/mm/yyyy.");
-            string dt = Console.ReadLine();
             CultureInfo itIT = new CultureInfo("it-IT");
             DateTime date = new DateTime();
-            if (!(DateTime.TryParseExact(dt, "dd/MM/yyyy", itIT, DateTimeStyles.None, out date)))
-            { return; }
-            Console.WriteLine("Ciao, inserisci per favore il tuo comune di nascita.");
-            string co = Console.ReadLine();
-            Console.WriteLine("Ciao, inserisci per favore il tuo gender, M or F.");
-            string ge = Console.ReadLine();
-
-            Utente u = new Utente(no, cg, date, co, ge);
+            do {
+                data = Console.ReadLine();
+            } while (!(DateTime.TryParseExact(data, "dd/MM/yyyy", itIT, DateTimeStyles.None, out date)));
+            Console.WriteLine("Ciao, inserisci per favore il tuo comune di nascita. Se alla fine restituisce errore, riprova modificando le iniziali " +
+                "in maiuscolo/viceversa. Come consiglio, le parole di +3 lettere iniziano in maiuscolo (es.San), il resto in minuscolo.");
+            do
+            {
+                comune = Console.ReadLine();
+            } while (comune == "" || !(comune.All(c => Char.IsLetter(c) || c == ' ')));
+            Console.WriteLine("Ciao, inserisci per favore il tuo gender, scrivendo M or F.");
+            do
+            {
+                sex = Console.ReadLine().ToUpper();
+            } while (sex == "" || (sex != "M" && sex != "F"));
+            #endregion
+        
+            Utente u = new Utente(nome, cognome, date, comune, sex);
             u.Print();
-
             CalcoloCF.Calcolo(u);
+
+
             Console.Read();
-
-
         }
     }
 }

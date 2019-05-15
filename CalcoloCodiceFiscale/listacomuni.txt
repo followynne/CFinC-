@@ -1467,7 +1467,7 @@ Lasnigo
 Lezzeno
 Limido Comasco
 Lipomo
-Livo
+LivoFirst
 Locate Varesino
 Lomazzo
 Longone al Segrino
@@ -2898,7 +2898,7 @@ Cagnò
 Calceranica al Lago
 Caldes
 Caldonazzo
-Calliano
+CallianoSecond
 Campitello di Fassa
 Campodenno
 Canal San Bovo
@@ -2991,7 +2991,7 @@ Rovereto
 Ruffrè-Mendola
 Rumo
 Sagron Mis
-Samone
+Samones
 San Michele all'Adige
 Sant'Orsola Terme
 Sanzeno
@@ -4788,7 +4788,7 @@ Montefelcino
 Monte Grimano Terme
 Montelabbate
 Monte Porzio
-Peglio
+Peglioo
 Pergola
 Pesaro
 Petriano
@@ -6597,7 +6597,7 @@ Veglie
 Vernole
 Zollino
 San Cassiano
-Castro
+Castros
 Porto Cesareo
 Presicce-Acquarica
 Andria
@@ -7626,7 +7626,7 @@ Erula
 Stintino
 Padru
 Budoni
-San Teodoro
+San Teodoroo
 Aritzo
 Arzana
 Atzara
