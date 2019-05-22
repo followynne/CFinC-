@@ -208,41 +208,39 @@ namespace CalcoloCodiceFiscale.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Albania	201
-        ///Andorra	202
-        ///Austria	203
-        ///Belgio	206
-        ///Bulgaria	209
-        ///Danimarca	212
-        ///Finlandia	214
-        ///Francia	215
-        ///Germania	216
-        ///Regno Unito	219
-        ///Grecia	220
-        ///Irlanda	221
-        ///Islanda	223
-        ///Liechtenstein	225
-        ///Lussemburgo	226
-        ///Malta	227
-        ///Monaco	229
-        ///Norvegia	231
-        ///Paesi Bassi	232
-        ///Polonia	233
-        ///Portogallo	234
-        ///Romania	235
-        ///San Marino	236
-        ///Spagna	239
-        ///Svezia	240
-        ///Svizzera	241
-        ///Ucraina	243
-        ///Ungheria	244
-        ///Federazione russa	245
-        ///Stato della Città del Vaticano	246
-        ///Estonia	247
-        ///Lettonia	248
-        ///Lituania	249
-        ///Croazia	250
-        ///Slovenia	 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Albania	Z100
+        ///Andorra	Z101
+        ///Austria	Z102
+        ///Belgio	Z103
+        ///Bulgaria	Z104
+        ///Danimarca	Z107
+        ///Finlandia	Z109
+        ///Francia	Z110
+        ///Germania	Z112
+        ///Regno Unito	Z114
+        ///Grecia	Z115
+        ///Irlanda	Z116
+        ///Islanda	Z117
+        ///Liechtenstein	Z119
+        ///Lussemburgo	Z120
+        ///Malta	Z121
+        ///Monaco	Z123
+        ///Norvegia	Z125
+        ///Paesi Bassi	Z126
+        ///Polonia	Z127
+        ///Portogallo	Z128
+        ///Romania	Z129
+        ///San Marino	Z130
+        ///Spagna	Z131
+        ///Svezia	Z132
+        ///Svizzera	Z133
+        ///Ucraina	Z138
+        ///Ungheria	Z134
+        ///Federazione russa	Z154
+        ///Stato della Città del Vaticano	Z106
+        ///Estonia	Z144
+        ///Lettonia	Z145
+        ///Litu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string nazioni {
             get {

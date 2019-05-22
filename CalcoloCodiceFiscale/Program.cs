@@ -5,14 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace CalcoloCodiceFiscale
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            #region consegna
+#region consegna
             /* Scopo applicativo
              * all'utente è chiesto di inserire i seguenti dati:
              * Nome
@@ -23,13 +16,21 @@ namespace CalcoloCodiceFiscale
              * In output sarà visualizzato il codice fiscale, calcolato tramite classe statica.
              */
             #endregion
+
+namespace CalcoloCodiceFiscale
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
             string nome, cognome, data, comune, sex;
 
             Console.WriteLine("Programma di Calcolo del Codice Fiscale per Stato Italiano." +
-                "\nRivisto e approvato da un vero funzionario anagrafico!\n\n");
-            //ANTICIPARE IMMISSIONE LETTERE ACCENTATE
+                "\nRivisto e approvato da un vero funzionario anagrafico!\n" +
+                "NB Non copre i casi di omocodia.\n");
+
             #region inputUser
-            Console.WriteLine("Ciao, inserisci per favore il tuo nome:");
+            Console.WriteLine("Ciao, inserisci per favore il tuo nome, senza l'uso di accenti:");
             do
             {
                 nome = Console.ReadLine();
@@ -38,7 +39,7 @@ namespace CalcoloCodiceFiscale
                 }
             } while (nome == "" || !(nome.All(c => Char.IsLetter(c) || c == ' ' || c == '\'')));
             nome = nome.Replace(" ", "").Replace("'", "");
-            Console.WriteLine("Ciao, inserisci per favore il tuo cognome:");
+            Console.WriteLine("Ciao, inserisci per favore il tuo cognome, senza l'uso di accenti:");
             do
             {
                 cognome = Console.ReadLine();
@@ -88,9 +89,6 @@ namespace CalcoloCodiceFiscale
         }
     }
 }
-
-
-
 
 
 #region WIP

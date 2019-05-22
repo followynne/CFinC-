@@ -173,7 +173,7 @@ namespace CalcoloCodiceFiscale.CF_Classes
             foreach (var natCod in sNazioni)
             {
                 string[] nazione = natCod.Split('\t');
-                d.Add(nazione[0].ToUpper().Replace(" ", "").Replace("'", "").Replace("-", ""), "Z" + nazione[1]);
+                d.Add(nazione[0].ToUpper().Replace(" ", "").Replace("'", "").Replace("-", ""), nazione[1]);
             }
             try
             {
@@ -222,13 +222,22 @@ namespace CalcoloCodiceFiscale.CF_Classes
                 {8, "I"}, {9, "J"},{10, "K"},{11, "L"},{12, "M"},{13, "N"},{14, "O"},{15, "P"},{16, "Q"},
                 {17, "R"},{18, "S"},{19, "T"},{20, "U"},{21, "V"},{22, "W"},{23, "X"},{24, "Y"},{25, "Z" }
             };
-            for (int k = 0; k<7;k++)
+
+            // tryCatch per bloccare eventuali caratteri speciali/di unicode diversi non bloccati già in fase di input
+            try
             {
-                cni += dPari.First(z => z.Key == pari[k].ToString()).Value;
+                for (int k = 0; k < 7; k++)
+                {
+                    cni += dPari.First(z => z.Key == pari[k].ToString()).Value;
+                }
+                for (int i = 0; i < 8; i++)
+                {
+                    cni += dDispari.First(z => z.Key == dispari[i].ToString()).Value;
+                }
             }
-            for (int i = 0; i<8; i++)
+            catch (Exception e)
             {
-                cni += dDispari.First(z => z.Key == dispari[i].ToString()).Value;
+                return e.StackTrace;
             }
             return dCni.First(z => z.Key == (cni%=26)).Value;
         }
