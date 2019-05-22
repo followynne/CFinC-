@@ -206,5 +206,48 @@ namespace CalcoloCodiceFiscale.Properties {
                 return ResourceManager.GetString("listacomuni", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Albania	201
+        ///Andorra	202
+        ///Austria	203
+        ///Belgio	206
+        ///Bulgaria	209
+        ///Danimarca	212
+        ///Finlandia	214
+        ///Francia	215
+        ///Germania	216
+        ///Regno Unito	219
+        ///Grecia	220
+        ///Irlanda	221
+        ///Islanda	223
+        ///Liechtenstein	225
+        ///Lussemburgo	226
+        ///Malta	227
+        ///Monaco	229
+        ///Norvegia	231
+        ///Paesi Bassi	232
+        ///Polonia	233
+        ///Portogallo	234
+        ///Romania	235
+        ///San Marino	236
+        ///Spagna	239
+        ///Svezia	240
+        ///Svizzera	241
+        ///Ucraina	243
+        ///Ungheria	244
+        ///Federazione russa	245
+        ///Stato della Città del Vaticano	246
+        ///Estonia	247
+        ///Lettonia	248
+        ///Lituania	249
+        ///Croazia	250
+        ///Slovenia	 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string nazioni {
+            get {
+                return ResourceManager.GetString("nazioni", resourceCulture);
+            }
+        }
     }
 }

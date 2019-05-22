@@ -1,0 +1,223 @@
+Albania	201
+Andorra	202
+Austria	203
+Belgio	206
+Bulgaria	209
+Danimarca	212
+Finlandia	214
+Francia	215
+Germania	216
+Regno Unito	219
+Grecia	220
+Irlanda	221
+Islanda	223
+Liechtenstein	225
+Lussemburgo	226
+Malta	227
+Monaco	229
+Norvegia	231
+Paesi Bassi	232
+Polonia	233
+Portogallo	234
+Romania	235
+San Marino	236
+Spagna	239
+Svezia	240
+Svizzera	241
+Ucraina	243
+Ungheria	244
+Federazione russa	245
+Stato della Città del Vaticano	246
+Estonia	247
+Lettonia	248
+Lituania	249
+Croazia	250
+Slovenia	251
+Bosnia-Erzegovina	252
+Ex Repubblica Jugoslava di Macedonia	253
+Moldova	254
+Slovacchia	255
+Bielorussia	256
+Repubblica ceca	257
+Montenegro	270
+Serbia	271
+Kosovo	272
+Afghanistan	301
+Arabia Saudita	302
+Bahrein	304
+Bangladesh	305
+Bhutan	306
+Myanmar/Birmania	307
+Brunei Darussalam	309
+Cambogia	310
+Sri Lanka	311
+Cina	314
+Cipro	315
+Corea del Nord	319
+Corea del Sud	320
+Emirati Arabi Uniti	322
+Filippine	323
+Palestina	324
+Giappone	326
+Giordania	327
+India	330
+Indonesia	331
+Iran	332
+Iraq	333
+Israele	334
+Kuwait	335
+Laos	336
+Libano	337
+Timor Leste	338
+Maldive	339
+Malaysia	340
+Mongolia	341
+Nepal	342
+Oman	343
+Pakistan	344
+Qatar	345
+Singapore	346
+Siria	348
+Thailandia	349
+Turchia	351
+Vietnam	353
+Yemen	354
+Kazakhstan	356
+Uzbekistan	357
+Armenia	358
+Azerbaigian	359
+Georgia	360
+Kirghizistan	361
+Tagikistan	362
+Taiwan	363
+Turkmenistan	364
+Algeria	401
+Angola	402
+Costa d'Avorio	404
+Benin	406
+Botswana	408
+Burkina Faso	409
+Burundi	410
+Camerun	411
+Capo Verde	413
+Repubblica Centrafricana	414
+Ciad	415
+Comore	417
+Congo	418
+Egitto	419
+Etiopia	420
+Gabon	421
+Gambia	422
+Ghana	423
+Gibuti	424
+Guinea	425
+Guinea-Bissau	426
+Guinea equatoriale	427
+Kenya	428
+Lesotho	429
+Liberia	430
+Libia	431
+Madagascar	432
+Malawi	434
+Mali	435
+Marocco	436
+Mauritania	437
+Maurizio	438
+Mozambico	440
+Namibia	441
+Niger	442
+Nigeria	443
+Ruanda	446
+Sao Tomé e Principe	448
+Seychelles	449
+Senegal	450
+Sierra Leone	451
+Somalia	453
+Sudafrica	454
+Sudan	455
+Eswatini	456
+Tanzania	457
+Togo	458
+Tunisia	460
+Uganda	461
+Repubblica Democratica del Congo	463
+Zambia	464
+Zimbabwe	465
+Eritrea	466
+Sud Sudan	467
+Antigua e Barbuda	503
+Bahamas	505
+Barbados	506
+Belize	507
+Canada	509
+Costa Rica	513
+Cuba	514
+Dominica	515
+Repubblica Dominicana	516
+El Salvador	517
+Giamaica	518
+Grenada	519
+Guatemala	523
+Haiti	524
+Honduras	525
+Messico	527
+Nicaragua	529
+Panama	530
+Santa Lucia	532
+Saint Vincent e Grenadine	533
+Saint Kitts e Nevis	534
+Stati Uniti d'America	536
+Argentina	602
+Bolivia	604
+Brasile	605
+Cile	606
+Colombia	608
+Ecuador	609
+Guyana	612
+Paraguay	614
+Perù	615
+Suriname	616
+Trinidad e Tobago	617
+Uruguay	618
+Venezuela	619
+Australia	701
+Figi	703
+Kiribati	708
+Isole Marshall	712
+Stati Federati di Micronesia	713
+Nauru	715
+Nuova Zelanda	719
+Palau	720
+Papua Nuova Guinea	721
+Isole Salomone	725
+Samoa	727
+Tonga	730
+Tuvalu	731
+Vanuatu	732
+Nuova Caledonia	902
+Saint-Martin (FR)	904
+Sahara occidentale	905
+Saint-Barthélemy	906
+Bermuda	908
+Isole Cook (NZ)	909
+Gibilterra	910
+Isole Cayman	911
+Anguilla	917
+Polinesia francese	920
+Isole Fær Øer	924
+Jersey	925
+Aruba	926
+Sint Maarten (NL)	928
+Groenlandia	934
+Sark	939
+Guernsey	940
+Isole Falkland (Malvine)	958
+Isola di Man	959
+Montserrat	964
+Curaçao	966
+Isole Pitcairn	972
+Saint Pierre e Miquelon	980
+Terre australi e antartiche francesi	988
+Isole Turks e Caicos	992
+Isole Vergini britanniche	994
+Wallis e Futuna	997

@@ -163,11 +163,17 @@ namespace CalcoloCodiceFiscale.CF_Classes
             
             string[] sCatasto = Properties.Resources.codCatastale.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             string[] sComuni = Properties.Resources.listacomuni.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-
+            string[] sNazioni = Properties.Resources.nazioni.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            
             Dictionary<string, string> d = new Dictionary<string, string>();
             for (int i=0;i< sCatasto.Length && i<sComuni.Length; i++)
             {
-                d.Add(sComuni[i], sCatasto[i]);
+                d.Add(sComuni[i].ToUpper().Replace("'", "").Replace("-", ""), sCatasto[i]);
+            }
+            foreach (var natCod in sNazioni)
+            {
+                string[] nazione = natCod.Split('\t');
+                d.Add(nazione[0].ToUpper().Replace(" ", "").Replace("'", "").Replace("-", ""), "Z" + nazione[1]);
             }
             try
             {
